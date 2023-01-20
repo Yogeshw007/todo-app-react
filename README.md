@@ -2,7 +2,7 @@
 
 This project is hosted with firebase [Check out here!!](https://todo-app-419ed.web.app/)
 
-Based on react js
+Based on react js and react bootstrap
 
 ![Example](https://i.ibb.co/pZKZHLt/application-image.png)
 
