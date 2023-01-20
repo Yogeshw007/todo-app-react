@@ -6,11 +6,6 @@ Based on react js
 
 ![Example](https://i.ibb.co/pZKZHLt/application-image.png)
 
-## Available Scripts
-
-In the project directory, you can run:
-
-
 ## Getting Started
 
 ```
