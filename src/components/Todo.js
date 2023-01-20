@@ -3,10 +3,20 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-
 function Todo(props) {
+    /*
+        item - data to be rendered
+        handleDeleteTodoItem - Function to delete a todo item
+        handleUpdateTodoItem - Function to update the text of a todo item
+        toggleTodoItem - Function to update the status of a todo item
+    */
+
     const { item, handleDeleteTodoItem, handleUpdateTodoItem, toggleTodoItem, index } = props;
+
+    // State for the controlled component for todo item text
     const [itemText, setItemText] = useState(item.title);
+
+    // State for todo item to enable/disable the edit mode
     const [editMode, setEditMode] = useState(false);
 
     function enableEditMode() {
@@ -85,6 +95,7 @@ function Todo(props) {
     )
 }
 
+// Styles for this component
 const styles = {
     image: {
         width: 20

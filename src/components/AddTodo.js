@@ -8,6 +8,7 @@ function AddTodo(props) {
 
     return (
         <React.Fragment>
+            {/* Search input */}
             <Col sm={11} style={{ paddingRight: 0 }}>
                 <input
                     type="text"
@@ -19,6 +20,7 @@ function AddTodo(props) {
                     placeholder='Add todo item here'
                 />
             </Col>
+            {/* Search button */}
             <Col sm={1} style={{ padding: 0 }}>
                 <Button
                     variant="info"
@@ -41,6 +43,7 @@ function AddTodo(props) {
     )
 }
 
+// Styles for this component
 const styles = {
     searchContainer: {
         width: '100%',

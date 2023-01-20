@@ -7,9 +7,9 @@ import { Col } from 'react-bootstrap';
 
 function Todos() {
     const [todoItems, setToDoItems] = useState([]);
-    const [todoItemAddLoader, setTodoItemAddLoader] = useState(false);
+    const [todoItemAddLoading, setTodoItemAddLoading] = useState(false);
 
-
+    // Function to add a todo item
     async function addNewItemTodoList(todoText) {
         const payload = {
             title: todoText,
@@ -25,7 +25,7 @@ function Todos() {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         };
-        setTodoItemAddLoader(true);
+        setTodoItemAddLoading(true);
 
         let data;
         try {
@@ -35,9 +35,10 @@ function Todos() {
             console.log('Error in adding todo item', error);
         }
         setToDoItems([...todoItems, data]);
-        setTodoItemAddLoader(false);
+        setTodoItemAddLoading(false);
     }
 
+    // Function to update the text of a todo item
     async function handleUpdateTodoItem(index, itemId, todoText) {
         const itemToBeUpdated = todoItems.filter((item) => {
             return item.id === itemId;
@@ -76,6 +77,7 @@ function Todos() {
         setToDoItems(updatedTodosList);
     }
 
+    // Function to delete a todo item
     async function handleDeleteTodoItem(id, itemId) {
         const updatedTodos = [...todoItems];
 
@@ -94,6 +96,7 @@ function Todos() {
         setToDoItems(updatedTodos);
     }
 
+    // Function to update the status of a todo item
     async function toggleTodoItem(index, itemId = 30, status) {
         const updatedTodosList = [...todoItems];
 
@@ -130,6 +133,7 @@ function Todos() {
         setToDoItems(updatedTodosList);
     }
 
+    // Fetching the todo items (12 items) from the API and updating the state
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos')
             .then(response => response.json())
@@ -153,7 +157,7 @@ function Todos() {
                 </Col>
             </Row>
             <Row style={styles.searchContainer}>
-                <AddTodo onAddNewItem={addNewItemTodoList} loading={todoItemAddLoader} />
+                <AddTodo onAddNewItem={addNewItemTodoList} loading={todoItemAddLoading} />
             </Row>
             {todoItems.map((item, index) => {
                 return (
@@ -171,6 +175,7 @@ function Todos() {
     )
 }
 
+// Styles for this component
 const styles = {
     container: {
         width: '35vw',
