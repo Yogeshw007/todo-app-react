@@ -70,7 +70,7 @@ function Todos() {
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${itemId}`, options);
             updatedItem = await response.json();
         } catch (error) {
-            console.log('Error in adding todo item', error);
+            console.log('Error in updating a todo item', error);
         }
 
         setToDoItems(updatedTodosList);
@@ -88,7 +88,7 @@ function Todos() {
         try {
             await fetch(`https://jsonplaceholder.typicode.com/posts/${itemId}`, options);
         } catch (error) {
-            console.log('Error in adding todo item', error);
+            console.log('Error in deleting todo item', error);
         }
 
         setToDoItems(updatedTodos);
@@ -124,7 +124,7 @@ function Todos() {
             const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${itemId}`, options);
             updatedItem = await response.json();
         } catch (error) {
-            console.log('Error in adding todo item', error);
+            console.log('Error in updating the status of todo item', error);
         }
 
         setToDoItems(updatedTodosList);
